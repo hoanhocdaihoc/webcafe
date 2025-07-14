@@ -1,0 +1,81 @@
+/* Reset và nền */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #4E342E !important;
+}
+
+.navbar-brand {
+  color: #FF7043 !important;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  margin-left: 15px;
+}
+
+.nav-link:hover {
+  color: #FF7043 !important;
+}
+
+/* Tiêu đề */
+h1, h2, h5 {
+  font-weight: bold;
+  color: #4E342E;
+}
+
+/* Ảnh */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Nút CTA */
+.btn-cafe {
+  background-color: #FF7043;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-cafe:hover {
+  background-color: #4E342E;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background-color: #4E342E;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #FF7043;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
