@@ -1,0 +1,232 @@
+<!-- menu.html with pop-up descriptions + images -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thực đơn - Cafe House</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf7;
+      color: #333;
+    }
+    .navbar {
+      background-color: #4E342E;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+    }
+    .nav-link.active {
+      font-weight: bold;
+      color: #FF7043 !important;
+    }
+    .menu-section {
+      padding: 60px 0;
+    }
+    .menu-category {
+      margin-bottom: 50px;
+    }
+    .menu-category h3 {
+      color: #4E342E;
+      border-bottom: 2px solid #FF7043;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px dashed #ccc;
+      cursor: pointer;
+    }
+    .menu-item img {
+      width: 100px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+    .menu-item-details {
+      flex-grow: 1;
+    }
+    .menu-item span.price {
+      color: #FF7043;
+      font-weight: bold;
+    }
+    .btn-order {
+      font-size: 0.9rem;
+      padding: 4px 10px;
+      background-color: #FF7043;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      margin-left: 10px;
+    }
+    .btn-order:hover {
+      background-color: #e55a2c;
+    }
+    .popover {
+      max-width: 300px;
+    }
+    footer {
+      background-color: #4E342E;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Cafe House</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">Giới thiệu</a></li>
+        <li class="nav-item"><a class="nav-link" href="news.html">Tin tức</a></li>
+        <li class="nav-item"><a class="nav-link active" href="menu.html">Thực đơn</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Thực đơn -->
+<section class="menu-section">
+  <div class="container">
+    <h2 class="text-center mb-5">Thực đơn của chúng tôi</h2>
+
+    <div class="menu-category">
+      <h3>Cà phê</h3>
+      <!-- Cà phê đen -->
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Nguyên liệu: cà phê rang xay nguyên chất. Vị mạnh, đắng đậm.">
+        <img src="images/cfden.jpg" alt="Cà phê đen">
+        <div class="menu-item-details">
+          <strong>Cà phê đen</strong><br>
+          <span class="price">25.000đ</span>
+          <a href="order.html?item=cfden" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+      <!-- Cà phê sữa -->
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Cà phê pha với sữa đặc, vị ngọt đậm, đậm đà hương vị truyền thống.">
+        <img src="images/cfsua.jpg" alt="Cà phê sữa">
+        <div class="menu-item-details">
+          <strong>Cà phê sữa</strong><br>
+          <span class="price">30.000đ</span>
+          <a href="order.html?item=cfsua" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+      <!-- Espresso -->
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Espresso đậm đặc, lớp crema vàng óng, vị đắng tinh tế.">
+        <img src="images/espresso.jpg" alt="Espresso">
+        <div class="menu-item-details">
+          <strong>Espresso</strong><br>
+          <span class="price">35.000đ</span>
+          <a href="order.html?item=espresso" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+      <!-- Cà phê capuchino -->
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Cà phê sữa với lớp kem sữa béo, mịn. Vị ngọt thanh và mùi hương quyến rũ.">
+        <img src="images/capuchino.jpg" alt="Capuchino">
+        <div class="menu-item-details">
+          <strong>Capuchino</strong><br>
+          <span class="price">40.000đ</span>
+          <a href="order.html?item=capuchino" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Trà & Nước Giải Khát</h3>
+
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Trà chanh mát lạnh kết hợp với lát chanh tươi.">
+        <img src="images/trachanh.jpg" alt="Trà chanh">
+        <div class="menu-item-details">
+          <strong>Trà chanh</strong><br>
+          <span class="price">22.000đ</span>
+          <a href="order.html?item=trachanh" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Trà đào thơm dịu, ngọt thanh, có miếng đào ngâm.">
+        <img src="images/tradao.jpg" alt="Trà đào">
+        <div class="menu-item-details">
+          <strong>Trà đào</strong><br>
+          <span class="price">28.000đ</span>
+          <a href="order.html?item=tradao" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Nước ép cam tươi nguyên chất, giàu vitamin C.">
+        <img src="images/nuoccam.jpg" alt="Nước cam">
+        <div class="menu-item-details">
+          <strong>Nước cam</strong><br>
+          <span class="price">32.000đ</span>
+          <a href="order.html?item=nuoccam" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Soda việt quất mát lạnh, vị chua ngọt tươi mới.">
+        <img src="images/soda.jpg" alt="Soda việt quất">
+        <div class="menu-item-details">
+          <strong>Soda việt quất</strong><br>
+          <span class="price">35.000đ</span>
+          <a href="order.html?item=sodavietquat" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Bánh ngọt & Ăn nhẹ</h3>
+
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Bánh mì nướng giòn với nhân pate, chả và rau sống.">
+        <img src="images/banhmi.jpg" alt="Bánh mì đặc biệt">
+        <div class="menu-item-details">
+          <strong>Bánh mì đặc biệt</strong><br>
+          <span class="price">25.000đ</span>
+          <a href="order.html?item=banhmi" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Bánh croissant mềm thơm vị bơ Pháp.">
+        <img src="images/croissant.jpg" alt="Croissant">
+        <div class="menu-item-details">
+          <strong>Croissant</strong><br>
+          <span class="price">20.000đ</span>
+          <a href="order.html?item=croissant" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+      <div class="menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Bánh muffin vị socola, mềm và ngọt vừa phải.">
+        <img src="images/muffin.jpg" alt="Muffin socola">
+        <div class="menu-item-details">
+          <strong>Muffin socola</strong><br>
+          <span class="price">18.000đ</span>
+          <a href="order.html?item=muffin" class="btn-order">Đặt món</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Cafe House | Thiết kế bởi Nhóm Sinh Viên</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+  const popoverList = [...popoverTriggerList].map(el => new bootstrap.Popover(el));
+</script>
+</body>
+</html>
