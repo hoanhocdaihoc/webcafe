@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px;
+      width: 100%;
+      background: #2196F3;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Đăng nhập</h2>
+  <input type="text" id="loginUsername" placeholder="Tên người dùng">
+  <input type="password" id="loginPassword" placeholder="Mật khẩu">
+  <button onclick="login()">Đăng nhập</button>
+  <a href="register.html">Chưa có tài khoản? Đăng ký</a>
+</div>
+
+<script>
+  function login() {
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+
+    const savedUsername = localStorage.getItem('username');
+    const savedPassword = localStorage.getItem('password');
+
+    if (username === savedUsername && password === savedPassword) {
+      alert("Đăng nhập thành công!");
+      window.location.href = "index.html";
+    } else {
+      alert("Sai tài khoản hoặc mật khẩu!");
+    }
+  }
+</script>
+
+</body>
+</html>
