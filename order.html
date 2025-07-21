@@ -139,18 +139,19 @@
   const item = params.get('item');
 
   const menu = {
-    cfden: { name: 'Cà phê đen', img: 'images/cfden.jpg' },
-    cfsua: { name: 'Cà phê sữa', img: 'images/cfsua.jpg' },
-    espresso: { name: 'Espresso', img: 'images/espresso.jpg' },
-    capuchino: { name: 'Capuchino', img: 'images/capuchino.jpg' },
-    trachanh: { name: 'Trà chanh', img: 'images/trachanh.jpg' },
-    nuoccam: { name: 'Nước cam', img: 'images/nuoccam.jpg' },
-    tradao: { name: 'Trà đào', img: 'images/tradao.jpg' },
-    sodavietquat: { name: 'Soda việt quất', img: 'images/soda.jpg' },
-    banhmi: { name: 'Bánh mì đặc biệt', img: 'images/banhmi.jpg' },
-    croissant: { name: 'Croissant', img: 'images/croissant.jpg' },
-    muffin: { name: 'Muffin socola', img: 'images/muffin.jpg' }
-  };
+  cfden: { name: 'Cà phê đen', img: '/static/images/cfden.jpg' },
+  cfsua: { name: 'Cà phê sữa', img: '/static/images/cfsua.jpg' },
+  espresso: { name: 'Espresso', img: '/static/images/espresso.jpg' },
+  capuchino: { name: 'Capuchino', img: '/static/images/capuchino.jpg' },
+  trachanh: { name: 'Trà chanh', img: '/static/images/trachanh.jpg' },
+  nuoccam: { name: 'Nước cam', img: '/static/images/nuoccam.jpg' },
+  tradao: { name: 'Trà đào', img: '/static/images/tradao.jpg' },
+  sodavietquat: { name: 'Soda việt quất', img: '/static/images/soda.jpg' },
+  banhmi: { name: 'Bánh mì đặc biệt', img: '/static/images/banhmi.jpg' },
+  croissant: { name: 'Croissant', img: '/static/images/croissant.jpg' },
+  muffin: { name: 'Muffin socola', img: '/static/images/muffin.jpg' }
+};
+
 
   if (item && menu[item]) {
     document.getElementById('itemName').innerText = menu[item].name;
