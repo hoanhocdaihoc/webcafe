@@ -62,6 +62,50 @@
     </div>
   </div>
 </nav>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang chủ</title>
+</head>
+<body>
+  <!-- Nội dung trang ở đây -->
+
+  <button id="loginBtn" onclick="handleLoginClick()">Đăng nhập</button>
+
+  <!-- Dán đoạn script này ở cuối cùng trước thẻ </body> -->
+  <script>
+    function updateLoginButton() {
+      const username = localStorage.getItem('username');
+      const loginBtn = document.getElementById('loginBtn');
+      
+      if (username) {
+        loginBtn.textContent = `👋 ${username} | Đăng xuất`;
+      } else {
+        loginBtn.textContent = "Đăng nhập";
+      }
+    }
+
+    function handleLoginClick() {
+      const username = localStorage.getItem('username');
+      if (username) {
+        const confirmLogout = confirm("Bạn có chắc muốn đăng xuất?");
+        if (confirmLogout) {
+          localStorage.removeItem('username');
+          localStorage.removeItem('password');
+          alert("Đã đăng xuất.");
+          updateLoginButton();
+          window.location.reload();
+        }
+      } else {
+        window.location.href = "login.html"; 
+      }
+    }
+
+    updateLoginButton();
+  </script>
+</body>
+</html>
 
 <!-- Giới thiệu -->
 <section class="intro-section">
