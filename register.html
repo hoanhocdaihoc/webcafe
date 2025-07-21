@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .register-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px;
+      width: 100%;
+      background: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="register-box">
+  <h2>Đăng ký</h2>
+  <input type="text" id="regUsername" placeholder="Tên người dùng" required>
+  <input type="password" id="regPassword" placeholder="Mật khẩu" required>
+  <button onclick="register()">Đăng ký</button>
+  <a href="login.html">Đã có tài khoản? Đăng nhập</a>
+</div>
+
+<script>
+  function register() {
+    const username = document.getElementById('regUsername').value;
+    const password = document.getElementById('regPassword').value;
+
+    if (!username || !password) {
+      alert("Vui lòng điền đầy đủ thông tin!");
+      return;
+    }
+
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+
+    alert("Đăng ký thành công! Mời bạn đăng nhập.");
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>
