@@ -1,4 +1,4 @@
-/* Reset và nền */
+/* Reset & Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #fffaf7;
   color: #333333;
   line-height: 1.6;
 }
@@ -15,50 +15,103 @@ body {
 /* Navbar */
 .navbar {
   background-color: #4E342E !important;
+  box-shadow: 0 2px 8px rgba(78,52,46,0.08);
 }
-
 .navbar-brand {
   color: #FF7043 !important;
   font-weight: bold;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
 }
-
 .nav-link {
   color: #ffffff !important;
   font-weight: 500;
   margin-left: 15px;
+  transition: color 0.2s;
 }
-
-.nav-link:hover {
+.nav-link:hover, .nav-link.active {
   color: #FF7043 !important;
 }
 
-/* Tiêu đề */
-h1, h2, h5 {
+/* Headings */
+h1, h2, h3, h5 {
   font-weight: bold;
   color: #4E342E;
+  letter-spacing: 0.5px;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
 }
 
-/* Ảnh */
+/* Images */
 img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-/* Nút CTA */
-.btn-cafe {
+/* Buttons */
+.btn-cafe, .btn-order, .btn-submit, .btn-register, .btn-login {
   background-color: #FF7043;
   color: #fff;
   border: none;
-  padding: 10px 25px;
   border-radius: 25px;
-  text-decoration: none;
-  transition: 0.3s;
+  padding: 10px 25px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-
-.btn-cafe:hover {
+.btn-cafe:hover, .btn-order:hover, .btn-submit:hover, .btn-register:hover, .btn-login:hover {
   background-color: #4E342E;
   color: #fff;
+  box-shadow: 0 4px 16px rgba(78,52,46,0.12);
+}
+.btn-outline-dark {
+  border-radius: 25px;
+  padding: 10px 25px;
+}
+
+/* Card & Menu */
+.menu-section .card, .best-seller-card, .contact-info {
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  transition: box-shadow 0.2s, transform 0.2s;
+  background: #fff;
+}
+.menu-section .card:hover, .best-seller-card:hover, .contact-info:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-4px) scale(1.03);
+}
+.menu-section .card-img-top, .best-seller-card img {
+  height: 140px;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+
+/* Form */
+.form-control, .form-select, textarea {
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus, .form-select:focus, textarea:focus {
+  border-color: #FF7043;
+  box-shadow: 0 2px 8px rgba(255,112,67,0.08);
+}
+.form-label {
+  font-weight: bold;
+  color: #4E342E;
 }
 
 /* Footer */
@@ -68,14 +121,92 @@ footer {
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
+  font-size: 1rem;
 }
-
 footer a {
   color: #FF7043;
   text-decoration: underline;
   margin: 0 5px;
+  transition: color 0.2s;
 }
-
 footer a:hover {
   color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .menu-section .card-img-top, .best-seller-card img {
+    height: 100px;
+  }
+  .register-box, .login-box {
+    padding: 24px 12px;
+    max-width: 98vw;
+  }
+}
+
+/* Custom for login/register message */
+#loginMessage, #registerMessage {
+  text-align: center;
+  margin-top: 12px;
+  color: #FF7043;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Custom for fixed login button */
+#loginBtn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  border-radius: 25px;
+  background: #FF7043;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+#loginBtn:hover {
+  background: #4E342E;
+  color: #fff;
+}
+
+/* Empty cart */
+.empty-cart {
+  text-align: center;
+  color: #FF7043;
+  font-size: 1.2rem;
+  margin: 40px 0;
+}
+
+/* Cart item */
+.cart-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.cart-item img {
+  width: 90px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.cart-details {
+  flex-grow: 1;
+}
+.cart-item:last-child {
+  border-bottom: none;
 }
