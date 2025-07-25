@@ -1,4 +1,3 @@
-<!-- news.html -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -25,20 +24,61 @@
     }
     .news-section {
       padding: 60px 0;
+      background: #FFF3E0;
+    }
+    .news-section h2 {
+      color: #FF7043;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: center;
     }
     .news-item {
-      margin-bottom: 40px;
+      margin-bottom: 48px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .news-item:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transform: translateY(-4px) scale(1.02);
     }
     .news-item img {
-      max-height: 300px;
+      max-height: 260px;
       object-fit: cover;
+      border-radius: 16px 0 0 16px;
     }
     .news-item h3 {
       color: #4E342E;
+      font-weight: bold;
+      margin-bottom: 12px;
     }
     .news-item p.date {
-      color: #999;
-      font-size: 0.9rem;
+      color: #FF7043;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .news-item .card-body {
+      padding: 32px 24px;
+    }
+    #loginBtn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      border-radius: 25px;
+      background: #FF7043;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.2s;
+    }
+    #loginBtn:hover {
+      background: #4E342E;
+      color: #fff;
     }
     footer {
       background-color: #4E342E;
@@ -63,79 +103,54 @@
         <li class="nav-item"><a class="nav-link active" href="news.html">Tin tức</a></li>
         <li class="nav-item"><a class="nav-link" href="menu.html">Thực đơn</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">🛒 Giỏ hàng</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Trang chủ</title>
-</head>
-<body>
-  <!-- Nội dung trang ở đây -->
 
-  <button id="loginBtn" onclick="handleLoginClick()">Đăng nhập</button>
+<button id="loginBtn" onclick="handleLoginClick()">Đăng nhập</button>
 
-  <!-- Dán đoạn script này ở cuối cùng trước thẻ </body> -->
-  <script>
-    function updateLoginButton() {
-      const username = localStorage.getItem('username');
-      const loginBtn = document.getElementById('loginBtn');
-      
-      if (username) {
-        loginBtn.textContent = `👋 ${username} | Đăng xuất`;
-      } else {
-        loginBtn.textContent = "Đăng nhập";
-      }
-    }
-
-    function handleLoginClick() {
-      const username = localStorage.getItem('username');
-      if (username) {
-        const confirmLogout = confirm("Bạn có chắc muốn đăng xuất?");
-        if (confirmLogout) {
-          localStorage.removeItem('username');
-          localStorage.removeItem('password');
-          alert("Đã đăng xuất.");
-          updateLoginButton();
-          window.location.reload();
-        }
-      } else {
-        window.location.href = "login.html"; 
-      }
-    }
-
-    updateLoginButton();
-  </script>
-</body>
-</html>
-
-<!-- Tin tức -->
 <section class="news-section">
   <div class="container">
-    <h2 class="text-center mb-5">Tin tức & Sự kiện</h2>
+    <h2>Tin tức & Sự kiện nổi bật</h2>
 
     <div class="news-item row align-items-center">
-      <div class="col-md-5">
-        <img src="static/images/mua-1-tang-1-2-1024x478.jpg" alt="Khuyến mãi đặc biệt" class="img-fluid rounded shadow">
+      <div class="col-md-5 p-0">
+        <img src="images/mua-1-tang-1-2-1024x478.jpg" alt="Khuyến mãi đặc biệt" class="img-fluid">
       </div>
       <div class="col-md-7">
-        <h3>Ưu đãi Tháng 7: Mua 1 tặng 1</h3>
-        <p class="date">07/07/2025</p>
-        <p>Trong suốt tháng 7, Cafe House mang đến chương trình "Mua 1 tặng 1" cho tất cả các loại cà phê đá. Đừng bỏ lỡ cơ hội tuyệt vời này để thưởng thức cà phê cùng bạn bè!</p>
+        <div class="card-body">
+          <h3>Ưu đãi Tháng 7: Mua 1 tặng 1</h3>
+          <p class="date">07/07/2025</p>
+          <p>Trong suốt tháng 7, Cafe House mang đến chương trình <b>"Mua 1 tặng 1"</b> cho tất cả các loại cà phê đá. Đây là cơ hội tuyệt vời để CEO và doanh nhân thưởng thức cà phê cùng đối tác, bạn bè trong không gian chuyên nghiệp.</p>
+        </div>
       </div>
     </div>
 
     <div class="news-item row align-items-center">
-      <div class="col-md-5">
-        <img src="static/images/workshoptch.jpg" alt="Workshop cà phê" class="img-fluid rounded shadow">
+      <div class="col-md-5 p-0">
+        <img src="images/workshoptch.jpg" alt="Workshop cà phê" class="img-fluid">
       </div>
       <div class="col-md-7">
-        <h3>Workshop Pha chế cà phê</h3>
-        <p class="date">01/07/2025</p>
-        <p>Hãy tham gia buổi Workshop đặc biệt của chúng tôi để học cách pha cà phê đúng chuẩn và tạo ra những ly cà phê nghệ thuật. Đăng ký tại quầy để giữ chỗ!</p>
+        <div class="card-body">
+          <h3>Workshop Pha chế cà phê nghệ thuật</h3>
+          <p class="date">01/07/2025</p>
+          <p>Tham gia Workshop đặc biệt tại Cafe House để học cách pha cà phê chuẩn vị và tạo ra những ly cà phê nghệ thuật. Sự kiện dành riêng cho các CEO, doanh nhân và khách hàng thân thiết. Đăng ký tại quầy để giữ chỗ!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-item row align-items-center">
+      <div class="col-md-5 p-0">
+        <img src="images/khonggianquan.jpg" alt="Không gian mới" class="img-fluid">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h3>Khai trương không gian VIP cho doanh nhân</h3>
+          <p class="date">25/06/2025</p>
+          <p>Cafe House vừa ra mắt khu vực VIP dành riêng cho doanh nhân, CEO với không gian yên tĩnh, wifi tốc độ cao và dịch vụ chuyên nghiệp. Đặt lịch trước để nhận ưu đãi đặc biệt!</p>
+        </div>
       </div>
     </div>
 
@@ -145,7 +160,31 @@
 <footer>
   <p>&copy; 2025 Cafe House | Thiết kế bởi Nhóm 4</p>
 </footer>
+<script>
+  function updateLoginButton() {
+    const username = localStorage.getItem('username');
+    const loginBtn = document.getElementById('loginBtn');
+    if (username) {
+      loginBtn.textContent = `👋 ${username} | Đăng xuất`;
+    } else {
+      loginBtn.textContent = "Đăng nhập";
+    }
+  }
+  function handleLoginClick() {
+    const username = localStorage.getItem('username');
+    if (username) {
+      const confirmLogout = confirm("Bạn có chắc muốn đăng xuất?");
+      if (confirmLogout) {
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        alert("Đã đăng xuất.");
+        updateLoginButton();
+        window.location.reload();
+      }
+    } else {
+      window.location.href = "login.html";
+    }
+  }
+  updateLoginButton();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-<!-- Compare this snippet from contact.html: -->
