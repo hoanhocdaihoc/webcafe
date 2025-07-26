@@ -2,14 +2,14 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Tin tức - Cafe House</title>
+  <title>Thực đơn - Cafe House</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fefefe;
+      background-color: #fffaf7;
       color: #333;
     }
     .navbar {
@@ -22,45 +22,58 @@
       font-weight: bold;
       color: #FF7043 !important;
     }
-    .news-section {
+    .menu-section {
       padding: 60px 0;
-      background: #FFF3E0;
     }
-    .news-section h2 {
-      color: #FF7043;
-      font-weight: bold;
-      margin-bottom: 40px;
-      text-align: center;
+    .menu-category {
+      margin-bottom: 50px;
     }
-    .news-item {
-      margin-bottom: 48px;
-      background: #fff;
+    .menu-category h3 {
+      color: #4E342E;
+      border-bottom: 2px solid #FF7043;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    .menu-section .card {
       border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-      overflow: hidden;
       transition: box-shadow 0.2s, transform 0.2s;
     }
-    .news-item:hover {
+    .menu-section .card:hover {
       box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      transform: translateY(-4px) scale(1.02);
+      transform: translateY(-4px) scale(1.03);
     }
-    .news-item img {
-      max-height: 260px;
+    .menu-section .card-img-top {
+      height: 140px;
       object-fit: cover;
-      border-radius: 16px 0 0 16px;
+      border-radius: 16px 16px 0 0;
     }
-    .news-item h3 {
-      color: #4E342E;
-      font-weight: bold;
-      margin-bottom: 12px;
+    .btn-order {
+      background-color: #FF7043;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 0;
+      font-weight: 500;
+      transition: background 0.2s;
     }
-    .news-item p.date {
-      color: #FF7043;
-      font-size: 0.95rem;
-      margin-bottom: 10px;
+    .btn-order:hover {
+      background-color: #4E342E;
+      color: #fff;
     }
-    .news-item .card-body {
-      padding: 32px 24px;
+    .badge.bg-warning {
+      font-size: 0.9em;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    .popover {
+      max-width: 300px;
+    }
+    footer {
+      background-color: #4E342E;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
     }
     #loginBtn {
       position: fixed;
@@ -80,13 +93,6 @@
       background: #4E342E;
       color: #fff;
     }
-    footer {
-      background-color: #4E342E;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
-    }
   </style>
 </head>
 <body>
@@ -100,8 +106,8 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">Giới thiệu</a></li>
-        <li class="nav-item"><a class="nav-link active" href="news.html">Tin tức</a></li>
-        <li class="nav-item"><a class="nav-link" href="menu.html">Thực đơn</a></li>
+        <li class="nav-item"><a class="nav-link" href="news.html">Tin tức</a></li>
+        <li class="nav-item"><a class="nav-link active" href="menu.html">Thực đơn</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
         <li class="nav-item"><a class="nav-link" href="cart.html">🛒 Giỏ hàng</a></li>
       </ul>
@@ -111,45 +117,137 @@
 
 <button id="loginBtn" onclick="handleLoginClick()">Đăng nhập</button>
 
-<section class="news-section">
+<section class="menu-section">
   <div class="container">
-    <h2>Tin tức & Sự kiện nổi bật</h2>
+    <h2 class="text-center mb-5">Thực đơn của chúng tôi</h2>
 
-    <div class="news-item row align-items-center">
-      <div class="col-md-5 p-0">
-        <img src="images/mua-1-tang-1-2-1024x478.jpg" alt="Khuyến mãi đặc biệt" class="img-fluid">
-      </div>
-      <div class="col-md-7">
-        <div class="card-body">
-          <h3>Ưu đãi Tháng 7: Mua 1 tặng 1</h3>
-          <p class="date">07/07/2025</p>
-          <p>Trong suốt tháng 7, Cafe House mang đến chương trình <b>"Mua 1 tặng 1"</b> cho tất cả các loại cà phê đá. Đây là cơ hội tuyệt vời để CEO và doanh nhân thưởng thức cà phê cùng đối tác, bạn bè trong không gian chuyên nghiệp.</p>
+    <div class="menu-category">
+      <h3>Cà phê</h3>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Cà phê đen truyền thống, vị đậm đà, thơm nồng.">
+            <img src="images/cfden.jpg" class="card-img-top" alt="Cà phê đen">
+            <div class="card-body">
+              <h5 class="card-title">Cà phê đen</h5>
+              <p class="card-text text-danger fw-bold">25.000đ</p>
+              <a href="order.html?item=cfden" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Cà phê sữa đá truyền thống, vị ngọt đậm, đậm đà hương vị Việt.">
+            <img src="images/cfsua.jpg" class="card-img-top" alt="Cà phê sữa đá">
+            <div class="card-body">
+              <h5 class="card-title">Cà phê sữa đá</h5>
+              <span class="badge bg-warning text-dark mb-2">Best Seller</span>
+              <p class="card-text text-danger fw-bold">30.000đ</p>
+              <a href="order.html?item=cfsua" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Espresso Ý nguyên chất, vị mạnh, hậu ngọt.">
+            <img src="images/espresso.jpg" class="card-img-top" alt="Espresso">
+            <div class="card-body">
+              <h5 class="card-title">Espresso</h5>
+              <p class="card-text text-danger fw-bold">35.000đ</p>
+              <a href="order.html?item=espresso" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Capuchino Ý, lớp bọt sữa mịn, vị béo nhẹ.">
+            <img src="images/capuchino.jpg" class="card-img-top" alt="Capuchino">
+            <div class="card-body">
+              <h5 class="card-title">Capuchino</h5>
+              <p class="card-text text-danger fw-bold">38.000đ</p>
+              <a href="order.html?item=capuchino" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="news-item row align-items-center">
-      <div class="col-md-5 p-0">
-        <img src="images/workshoptch.jpg" alt="Workshop cà phê" class="img-fluid">
-      </div>
-      <div class="col-md-7">
-        <div class="card-body">
-          <h3>Workshop Pha chế cà phê nghệ thuật</h3>
-          <p class="date">01/07/2025</p>
-          <p>Tham gia Workshop đặc biệt tại Cafe House để học cách pha cà phê chuẩn vị và tạo ra những ly cà phê nghệ thuật. Sự kiện dành riêng cho các CEO, doanh nhân và khách hàng thân thiết. Đăng ký tại quầy để giữ chỗ!</p>
+    <div class="menu-category">
+      <h3>Trà & Nước ép</h3>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Trà chanh tươi mát, vị chua nhẹ, giải nhiệt.">
+            <img src="images/trachanh.jpg" class="card-img-top" alt="Trà chanh">
+            <div class="card-body">
+              <h5 class="card-title">Trà chanh</h5>
+              <p class="card-text text-danger fw-bold">22.000đ</p>
+              <a href="order.html?item=trachanh" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Nước cam tươi nguyên chất, bổ sung vitamin C.">
+            <img src="images/nuoccam.jpg" class="card-img-top" alt="Nước cam">
+            <div class="card-body">
+              <h5 class="card-title">Nước cam</h5>
+              <p class="card-text text-danger fw-bold">30.000đ</p>
+              <a href="order.html?item=nuoccam" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Trà đào thơm dịu, ngọt thanh, có miếng đào ngâm.">
+            <img src="images/tradao.jpg" class="card-img-top" alt="Trà đào">
+            <div class="card-body">
+              <h5 class="card-title">Trà đào</h5>
+              <span class="badge bg-warning text-dark mb-2">Best Seller</span>
+              <p class="card-text text-danger fw-bold">28.000đ</p>
+              <a href="order.html?item=tradao" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Soda việt quất mát lạnh, vị ngọt nhẹ, giải khát.">
+            <img src="images/sodavietquat.jpg" class="card-img-top" alt="Soda việt quất">
+            <div class="card-body">
+              <h5 class="card-title">Soda việt quất</h5>
+              <p class="card-text text-danger fw-bold">32.000đ</p>
+              <a href="order.html?item=sodavietquat" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="news-item row align-items-center">
-      <div class="col-md-5 p-0">
-        <img src="images/khonggianquan.jpg" alt="Không gian mới" class="img-fluid">
-      </div>
-      <div class="col-md-7">
-        <div class="card-body">
-          <h3>Khai trương không gian VIP cho doanh nhân</h3>
-          <p class="date">25/06/2025</p>
-          <p>Cafe House vừa ra mắt khu vực VIP dành riêng cho doanh nhân, CEO với không gian yên tĩnh, wifi tốc độ cao và dịch vụ chuyên nghiệp. Đặt lịch trước để nhận ưu đãi đặc biệt!</p>
+    <div class="menu-category">
+      <h3>Bánh & Đồ ăn nhẹ</h3>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Bánh mì đặc biệt với nhân pate, chả và rau sống.">
+            <img src="images/banhmi.jpg" class="card-img-top" alt="Bánh mì đặc biệt">
+            <div class="card-body">
+              <h5 class="card-title">Bánh mì đặc biệt</h5>
+              <span class="badge bg-warning text-dark mb-2">Best Seller</span>
+              <p class="card-text text-danger fw-bold">25.000đ</p>
+              <a href="order.html?item=banhmi" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Bánh croissant Pháp, lớp vỏ giòn, vị bơ thơm.">
+            <img src="images/croissant.jpg" class="card-img-top" alt="Croissant">
+            <div class="card-body">
+              <h5 class="card-title">Croissant</h5>
+              <p class="card-text text-danger fw-bold">28.000đ</p>
+              <a href="order.html?item=croissant" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card h-100 shadow-sm menu-item" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Muffin socola mềm xốp, vị ngọt vừa, thơm socola.">
+            <img src="images/muffin.jpg" class="card-img-top" alt="Muffin socola">
+            <div class="card-body">
+              <h5 class="card-title">Muffin socola</h5>
+              <p class="card-text text-danger fw-bold">26.000đ</p>
+              <a href="order.html?item=muffin" class="btn btn-order w-100 btn-order-check">Đặt món</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -158,8 +256,9 @@
 </section>
 
 <footer>
-  <p>&copy; 2025 Cafe House | Thiết kế bởi Nhóm 4</p>
+  &copy; 2025 Cafe House | Thiết kế bởi Nhóm 4
 </footer>
+
 <script>
   function updateLoginButton() {
     const username = localStorage.getItem('username');
@@ -177,6 +276,7 @@
       if (confirmLogout) {
         localStorage.removeItem('username');
         localStorage.removeItem('password');
+        localStorage.removeItem('isLoggedIn');
         alert("Đã đăng xuất.");
         updateLoginButton();
         window.location.reload();
@@ -186,5 +286,24 @@
     }
   }
   updateLoginButton();
+
+  // Bootstrap popover cho mô tả món
+  document.addEventListener("DOMContentLoaded", function() {
+    const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    popoverTriggerList.forEach(function (popoverTriggerEl) {
+      new bootstrap.Popover(popoverTriggerEl);
+    });
+
+    // Bắt buộc đăng nhập mới đặt món
+    document.querySelectorAll('.btn-order-check').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+          e.preventDefault();
+          alert("Bạn cần đăng nhập để đặt món!");
+          window.location.href = "login.html";
+        }
+      });
+    });
+  });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
