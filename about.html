@@ -2,13 +2,14 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Giỏ hàng - Cafe House</title>
+  <title>Giới thiệu - Cafe House</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <style>
     body {
-      background-color: #fffaf7;
       font-family: 'Segoe UI', sans-serif;
+      background-color: #fefefe;
       color: #333;
     }
     .navbar {
@@ -17,52 +18,26 @@
     .navbar-brand, .nav-link {
       color: #fff !important;
     }
-    .container {
-      margin-top: 40px;
-      margin-bottom: 40px;
+    .nav-link.active {
+      font-weight: bold;
+      color: #FF7043 !important;
     }
-    h2 {
+    .intro-section {
+      background-color: #FFF3E0;
+      padding: 60px 0;
+    }
+    .intro-section h2 {
       color: #4E342E;
       font-weight: bold;
-      margin-bottom: 32px;
+      margin-bottom: 18px;
     }
-    .cart-item {
-      padding: 18px 0;
-      border-bottom: 1px solid #eee;
-      display: flex;
-      align-items: center;
-      gap: 18px;
+    .intro-section p {
+      font-size: 1.15rem;
+      margin-bottom: 16px;
     }
-    .cart-item img {
-      width: 90px;
-      height: 70px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .cart-details {
-      flex-grow: 1;
-    }
-    .cart-item:last-child {
-      border-bottom: none;
-    }
-    .btn-order {
-      background-color: #FF7043;
-      color: #fff;
-      border: none;
-      border-radius: 25px;
-      padding: 8px 24px;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-    .btn-order:hover {
-      background-color: #4E342E;
-      color: #fff;
-    }
-    .empty-cart {
-      text-align: center;
-      color: #FF7043;
-      font-size: 1.2rem;
-      margin: 40px 0;
+    .intro-section img {
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
     }
     #loginBtn {
       position: fixed;
@@ -95,25 +70,43 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="index.html">Cafe House</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">Giới thiệu</a></li>
+        <li class="nav-item"><a class="nav-link" href="news.html">Tin tức</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Thực đơn</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">🛒 Giỏ hàng</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <button id="loginBtn" onclick="handleLoginClick()">Đăng nhập</button>
 
-<div class="container">
-  <h2>Giỏ hàng của bạn</h2>
-  <div id="cartList"></div>
-  <div class="text-end mt-4">
-    <button class="btn btn-order" id="confirmOrderBtn">Xác nhận đặt hàng</button>
-    <a href="menu.html" class="btn btn-light border ms-3">← Quay về thực đơn</a>
+<section class="intro-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h2>Về Cafe House</h2>
+        <p><strong>Cafe House</strong> là điểm đến lý tưởng cho doanh nhân, CEO và những người yêu cà phê. Chúng tôi mang đến không gian hiện đại, chuyên nghiệp, nơi bạn có thể thưởng thức những ly cà phê nguyên chất, làm việc hiệu quả và kết nối cộng đồng.</p>
+        <p>Đội ngũ pha chế của chúng tôi luôn sáng tạo, chọn lọc những hạt cà phê tốt nhất, kết hợp cùng phong cách phục vụ tận tâm. Cafe House không chỉ là quán cà phê, mà còn là nơi truyền cảm hứng, thúc đẩy sự sáng tạo và thành công.</p>
+        <p>Hãy đến và trải nghiệm sự khác biệt tại Cafe House – nơi mỗi khoảnh khắc đều đáng giá!</p>
+      </div>
+      <div class="col-md-6">
+        <img src="images/gioi-thieu-tch.jpg" alt="Giới thiệu Cafe House" class="img-fluid rounded shadow">
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <footer>
   <p>&copy; 2025 Cafe House | Thiết kế bởi Nhóm 4</p>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   function updateLoginButton() {
     const username = localStorage.getItem('username');
@@ -140,53 +133,5 @@
     }
   }
   updateLoginButton();
-
-  // Hiển thị giỏ hàng
-  function renderCart() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const cartList = document.getElementById("cartList");
-    if (cart.length === 0) {
-      cartList.innerHTML = '<div class="empty-cart">Giỏ hàng của bạn đang trống.</div>';
-      document.getElementById("confirmOrderBtn").style.display = "none";
-      return;
-    }
-    let html = "";
-    cart.forEach((item, idx) => {
-      html += `
-        <div class="cart-item">
-          <img src="${item.img}" alt="${item.name}">
-          <div class="cart-details">
-            <h5>${item.name}</h5>
-            <div>Số lượng: <b>${item.quantity}</b> | Kích cỡ: <b>${item.size}</b></div>
-            <div>Người nhận: ${item.customer.name} | ĐT: ${item.customer.phone}</div>
-            <div>Địa chỉ: ${item.customer.address}</div>
-            ${item.customer.note ? `<div>Ghi chú: ${item.customer.note}</div>` : ""}
-          </div>
-          <button class="btn btn-sm btn-danger" onclick="removeItem(${idx})">Xóa</button>
-        </div>
-      `;
-    });
-    cartList.innerHTML = html;
-    document.getElementById("confirmOrderBtn").style.display = "inline-block";
-  }
-
-  function removeItem(idx) {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.splice(idx, 1);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    renderCart();
-  }
-
-  document.getElementById("confirmOrderBtn").addEventListener("click", function() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (cart.length === 0) return;
-    alert("✅ Đặt hàng thành công! Cảm ơn bạn đã sử dụng dịch vụ Cafe House.");
-    localStorage.removeItem("cart");
-    renderCart(); // Sửa lỗi: cập nhật lại giao diện sau khi xóa giỏ hàng
-  });
-
-  renderCart();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
